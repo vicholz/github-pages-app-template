@@ -45,6 +45,7 @@ Produce a self-contained, modern, client-side app that matches the style and rel
 - [ ] Print layout is correct if the app produces printable output
 - [ ] No build step is required to run the app
 - [ ] `.nojekyll` is present
+- [ ] Short commit version hash is shown when the GitHub API is reachable
 
 ## Reference patterns
 
