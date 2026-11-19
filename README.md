@@ -75,6 +75,11 @@ Store data, configuration, and settings in `localStorage` (or cookies only when 
 - Modern visual design with a clear hierarchy, consistent spacing, and subtle transitions.
 - Keep interactions snappy; avoid unnecessary reloads.
 
+
+### Version hash
+
+Show a short commit hash on the page when possible. Fetch the latest commit for the repo from the GitHub API and link the first 7 characters to that commit. Do not block startup on the request. See `examples/version-snippet.js`.
+
 ### 6. Tests
 Add tests for pure logic (generation, normalization, encoding/decoding, import/export) when they can be run simply (Node, a small test runner, or a browser test page). Do not force a heavy test infrastructure on tiny apps.
 
