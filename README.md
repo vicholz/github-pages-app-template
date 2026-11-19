@@ -3,14 +3,14 @@
 Template and guidelines for building modern, client-side GitHub Pages apps.
 
 Derived from patterns in:
-- [math-sheet-generator](https://github.com/vicholz/math-sheet-generator)
-- [simple_scheduler](https://github.com/vicholz/simple_scheduler)
-- [ebook_converter](https://github.com/vicholz/ebook_converter)
-- [web-reader](https://github.com/vicholz/web-reader)
-- [brackettier](https://github.com/vicholz/brackettier)
-- [livestream_tools](https://github.com/vicholz/livestream_tools)
+- [math-sheet-generator](https://vicholz.github.io/math-sheet-generator/)
+- [simple_scheduler](https://vicholz.github.io/simple_scheduler/)
+- [ebook_converter](https://vicholz.github.io/ebook_converter/)
+- [web-reader](https://vicholz.github.io/web-reader/)
+- [brackettier](https://vicholz.github.io/brackettier/)
+- [livestream_tools](https://vicholz.github.io/livestream_tools/)
 
-**Live examples:** see each repo’s GitHub Pages site (e.g. `https://vicholz.github.io/<repo>/`).
+**Live host:** `https://vicholz.github.io/`
 
 ## What this is for
 
@@ -26,7 +26,7 @@ Self-contained browser apps that:
 1. Use this repo as a template (or copy the structure).
 2. Replace `index.html`, styles, and scripts with your app.
 3. Enable GitHub Pages (Settings → Pages → Deploy from branch `main` / root).
-4. The site will be available at `https://<user>.github.io/<repo>/`.
+4. The site will be available at `https://vicholz.github.io/<repo>/` (or `https://<user>.github.io/<repo>/`).
 
 ```bash
 # Local preview
@@ -95,6 +95,8 @@ Look at the referenced apps for visual and interaction patterns:
 2. Source: Deploy from a branch
 3. Branch: `main` / `/(root)`
 4. Save
+
+Live URL pattern: `https://vicholz.github.io/<repo>/`
 
 ## License
 
