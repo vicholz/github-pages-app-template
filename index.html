@@ -7,10 +7,13 @@
 <style>
   body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; }
   code { background: #f4f4f5; padding: 0.1em 0.35em; border-radius: 4px; }
+  .app-version { color: #6b7280; font-size: 0.85rem; font-family: ui-monospace, monospace; }
+  .app-version a { color: #2563eb; }
 </style>
 </head>
 <body>
   <h1>GitHub Pages App Template</h1>
+  <p class="app-version" id="app-version" hidden></p>
   <p>This repository is a template and set of guidelines. See <code>README.md</code> and <code>skill/SKILL.md</code>.</p>
   <p>Examples live in <code>examples/</code>. A sample pure-logic test is in <code>tests/</code>.</p>
   <p>Reference apps on <a href="https://vicholz.github.io/">https://vicholz.github.io/</a>:</p>
@@ -22,5 +25,24 @@
     <li><a href="https://vicholz.github.io/brackettier/">brackettier</a></li>
     <li><a href="https://vicholz.github.io/livestream_tools/">livestream_tools</a></li>
   </ul>
+  <script>
+    const APP_REPO = "vicholz/github-pages-app-template";
+    fetch("https://api.github.com/repos/" + APP_REPO + "/commits/main")
+      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+      .then((commit) => {
+        if (!commit.sha) return;
+        const el = document.getElementById("app-version");
+        if (!el) return;
+        el.append("Version ");
+        const a = document.createElement("a");
+        a.href = "https://github.com/" + APP_REPO + "/commit/" + commit.sha;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = commit.sha.slice(0, 7);
+        el.appendChild(a);
+        el.hidden = false;
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
