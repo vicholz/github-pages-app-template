@@ -52,3 +52,39 @@ Produce a self-contained, modern, client-side app that matches the style and rel
 - **Share:** `CompressionStream`/`DecompressionStream` + base64url (see math-sheet-generator)
 - **Layout:** atmospheric dark theme, Fraunces + Figtree, sticky controls, print media queries that force multi-column grids
 - **Modules:** one file per concern (`store.js`, `share.js`, domain modules, thin `app.js`)
+
+## Version hash
+
+When possible, show a short commit hash on the page so the running version is visible.
+
+- Fetch `https://api.github.com/repos/<owner>/<repo>/commits/main` (or the default branch).
+- Display the first 7 characters as a link to `https://github.com/<owner>/<repo>/commit/<sha>`.
+- Place it near the title or brand. Hide it until the fetch succeeds, and hide it in print.
+- Do not block app startup on this request. Ignore failures.
+
+```js
+const APP_REPO = "owner/repo";
+
+function loadAppVersion() {
+  fetch("https://api.github.com/repos/" + APP_REPO + "/commits/main")
+    .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((commit) => {
+      if (!commit.sha) return;
+      const el = document.getElementById("app-version");
+      if (!el) return;
+      el.replaceChildren();
+      el.append("Version ");
+      const a = document.createElement("a");
+      a.href = "https://github.com/" + APP_REPO + "/commit/" + commit.sha;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = commit.sha.slice(0, 7);
+      el.appendChild(a);
+      el.hidden = false;
+    })
+    .catch(() => {});
+}
+```
+
+HTML: `<p class="app-version" id="app-version" hidden></p>`
+
