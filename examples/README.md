@@ -6,3 +6,4 @@ Minimal snippets extracted from working Pages apps.
 - `store-snippet.js` — versioned `localStorage` load/save/normalize + debounced autosave (pattern used in simple_scheduler)
 
 Copy and adapt. Prefer ES modules and keep domain logic separate from UI.
+- `version-snippet.js` — show a short commit hash by fetching the latest `main` commit from the GitHub API
